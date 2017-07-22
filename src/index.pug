@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Filburt Arch
+    base(href='/')
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(src='node_modules/core-js/client/shim.min.js')
+    script(src='node_modules/zone.js/dist/zone.js')
+    script(src='node_modules/systemjs/dist/system.src.js')
+    script(src='system.conf.js')
+    script.
+      System.import('main.js').catch(function(err){ console.error(err); });
+  body
+    app Loading...

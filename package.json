@@ -1,0 +1,62 @@
+{
+  "name": "filburt-arch",
+  "version": "0.0.1",
+  "description": "Filburt folders-by-feature structure",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "npm run build:vendor && npm run build:bundle && cp node_modules/core-js/client/shim.min.js build/ && cp node_modules/zone.js/dist/zone.js build/ && cp resources/index-for-building.html build/index.html",
+    "build:bundle": "rollup -c rollup.conf.js && tsc --out build/bundle.js --target es5 --allowJs build/bundle.es2015.js",
+    "build:vendor": "rollup -c rollup.vendor.conf.js && tsc --out build/vendor.js --target es5 --allowJs build/vendor.es2015.js",
+    "build:serve": "lite-server -c=bs-conf.build.json",
+    "clean:build": "rm -fr build/",
+    "compile:pug": "pug src/",
+    "compile:typescript": "tsc -p src/",
+    "serve": "lite-server -c=bs-conf.json",
+    "start": "concurrently \"npm run watch\" \"npm run serve\"",
+    "test": "karma start karma/conf.js",
+    "watch": "concurrently \"npm run watch:pug\" \"npm run watch:typescript\"",
+    "watch:pug": "npm run compile:pug -- -P -w",
+    "watch:typescript": "npm run compile:typescript -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gcca/filburt-arch.git"
+  },
+  "keywords": [
+    "filburt",
+    "architecture",
+    "folder",
+    "structure"
+  ],
+  "author": "Cristhian Gz",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/gcca/filburt-arch/issues"
+  },
+  "homepage": "https://github.com/gcca/filburt-arch#readme",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "lite-server": "^2.3.0",
+    "pug-cli": "^1.0.0-alpha6",
+    "rollup": "^0.45.2",
+    "rollup-plugin-alias": "^1.3.1",
+    "rollup-plugin-angular": "^0.4.4",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "systemjs": "^0.20.15",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "@angular/common": "^4.3.1",
+    "@angular/compiler": "^4.3.1",
+    "@angular/core": "^4.3.1",
+    "@angular/http": "^4.3.1",
+    "@angular/platform-browser": "^4.3.1",
+    "@angular/platform-browser-dynamic": "^4.3.1",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.4.2",
+    "rxjs-es": "^5.0.0-beta.12",
+    "zone.js": "^0.8.14"
+  }
+}

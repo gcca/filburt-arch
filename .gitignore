@@ -1,0 +1,8 @@
+!src/system.conf.js
+!src/system-ng-loader.js
+build
+node_modules
+src/**/*.css
+src/**/*.html
+src/**/*.js
+src/**/*.map
