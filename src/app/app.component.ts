@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  template: 'Filburt Arch',
+  template: '<layout></layout>',
   selector: 'app',
 })
 export class AppComponent { }
